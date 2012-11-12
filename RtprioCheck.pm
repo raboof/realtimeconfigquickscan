@@ -33,7 +33,6 @@ sub execute
 	my $rtprioout = `chrt 80 echo success`;
 	if ($rtprioout =~ /success/)
 	{
-		print "yes - good.\n";
 		$self->{RESULTKIND} = "good";
 		$self->{RESULT} = "yes";
 		$self->{COMMENT} = undef;
