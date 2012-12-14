@@ -36,7 +36,7 @@ sub execute
 
 	my $kernelVersion = `uname -r`;
 	$kernelVersion =~ /^(\d+)\.(\d+)\.(\d+)/;
-	if ($1 >= 2 && $2 >= 6 && $3 >= 30)
+	if ($1 > 2 || ($1 == 2 && ($2 > 6 || ($2 == 6 && $3 >= 30))))
 	{
 		$self->{RESULT} = "$1.$2.$3 kernel";
 		$self->{RESULTKIND} = "good";
@@ -49,7 +49,7 @@ sub execute
 		my %fs = %{$fsref};
 		if ($fs{dev} =~ /^\/dev/ && $fs{params} !~ /noatime/)
 		{
-			$self->{RESULT} = "found";
+			$self->{RESULT} = "not found";
 			$self->{RESULTKIND} = "warning";
 			$self->{COMMENT} .= "$fs{mountpoint} does not have the 'noatime' parameter set\n";
 		}
