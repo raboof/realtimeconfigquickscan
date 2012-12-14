@@ -32,51 +32,7 @@ use HighResTimersCheck;
 use PreemptRtCheck;
 use Hz1000Check;
 use NoHzCheck;
-
-package NoAtimeCheck;
-
-use base qw(Check);
-
-sub new
-{
-	my($class) = shift;
-        my($self) = Check->new($class);
-	$self->{LABEL} = "Checking filesystem 'noatime' parameter";
-	return (bless($self, $class));
-}
-
-sub execute
-{
-	my $self = shift;
-	$self->{RESULTKIND} = "good";
-	$self->{RESULT} = "";
-	$self->{COMMENT} = "";
-
-	my $kernelVersion = `uname -r`;
-	$kernelVersion =~ /^(\d+)\.(\d+)\.(\d+)/;
-	if ($1 >= 2 && $2 >= 6 && $3 >= 30)
-	{
-		$self->{RESULT} = "$1.$2.$3 kernel";
-		$self->{RESULTKIND} = "good";
-		$self->{COMMENT} = "(relatime is default since 2.6.30)";
-		return;
-	}
-
-	foreach my $fsref (QuickScanEngine::getFilesystems())
-	{
-		my %fs = %{$fsref};
-		if ($fs{dev} =~ /^\/dev/ && $fs{params} !~ /noatime/)
-		{
-			$self->{RESULT} = "found";
-			$self->{RESULTKIND} = "warning";
-			$self->{COMMENT} .= "$fs{mountpoint} does not have the 'noatime' parameter set\n";
-		}
-	}
-	if ($self->{RESULTKIND} eq "warning")
-	{
-		$self->{COMMENT} .= "For more information, see http://wiki.linuxmusicians.com/doku.php?id=system_configuration#filesystems";
-	}
-}	
+use NoAtimeCheck;
 
 package QuickScanEngine;
 
