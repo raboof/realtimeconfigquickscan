@@ -32,7 +32,7 @@ sub executeWithKernelConfig($)
 	my $self = shift;
 	my $kernelConfig = shift;
 
-	if ( $kernelConfig !~ /CONFIG_PREEMPT_RT=y/)
+	if ( $kernelConfig !~ /CONFIG_PREEMPT_RT=y|CONFIG_PREEMPT_RT_FULL=y/)
 	{
 		$self->{RESULTKIND} = "not good";
 		$self->{RESULT} = "not found";
