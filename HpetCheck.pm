@@ -45,7 +45,7 @@ sub execute
 			$self->{RESULT} = "not readable";
 			$self->{COMMENT} = "/dev/hpet found, but not readable.\n".
 				"make /dev/hpet readable by the 'audio' group\n".
-				"For more information, see http://wiki.linuxmusicians.com/doku.php?id=system_configuration#hpet";
+				"For more information, see http://wiki.linuxaudio.org/wiki/system_configuration#hardware_timers";
 		}
 	}
 	else

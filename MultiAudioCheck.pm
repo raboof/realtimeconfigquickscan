@@ -41,7 +41,7 @@ sub execute
 		$self->{RESULTKIND} = "not good";
 		$self->{RESULT} = "yes";
 		$self->{COMMENT} = "Found $audioGroups groups with name 'audio'. You should not have duplicate 'audio' groups.\n".
-			"For more information, see http://wiki.linuxmusicians.com/doku.php?id=system_configuration#audio_group";
+			"For more information, see http://wiki.linuxaudio.org/wiki/system_configuration#audio_group";
 	}
 }
 

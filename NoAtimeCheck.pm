@@ -56,7 +56,7 @@ sub execute
 	}
 	if ($self->{RESULTKIND} eq "warning")
 	{
-		$self->{COMMENT} .= "For more information, see http://wiki.linuxmusicians.com/doku.php?id=system_configuration#filesystems";
+		$self->{COMMENT} .= "For more information, see http://wiki.linuxaudio.org/wiki/system_configuration#filesystems";
 	}
 }	
 

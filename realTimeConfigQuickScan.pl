@@ -61,7 +61,7 @@ if (!$foundMessage)
 }
 else
 {
-	print "   For more information, see http://wiki.linuxmusicians.com/doku.php?id=system_configuration#filesystems\n";
+	print "   For more information, see http://wiki.linuxaudio.org/wiki/system_configuration#filesystems\n";
 }
 
 if ($tmpfs)
@@ -74,7 +74,7 @@ else
 	print "** Warning: no tmpfs partition mounted on /tmp\n";
 	# TODO tip about 'sudo mount -t tmpfs none /tmp' or editing fstab.
 	print "   For more information, see:\n";
-	print "   - http://wiki.linuxmusicians.com/doku.php?id=system_configuration#tmpfs\n";
+	print "   - http://wiki.linuxaudio.org/wiki/system_configuration#tmpfs\n";
 	print "   - http://lowlatency.linuxaudio.org\n";
 }
 
@@ -149,7 +149,7 @@ else
 #{
 #	print "no.\n";
 #	print "** Could not assign a -5 nice value. Set up limits.conf.\n";
-#	print "   For more information, see http://wiki.linuxmusicians.com/doku.php?id=system_configuration#limits.conf\n";
+#	print "   For more information, see http://wiki.linuxaudio.org/wiki/system_configuration#limitsconfaudioconf\n";
 #}
 # TODO other limits.conf settings: 
 
