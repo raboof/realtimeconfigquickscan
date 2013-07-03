@@ -37,7 +37,7 @@ sub executeWithKernelConfig($)
 		$self->{RESULTKIND} = "not good";
 		$self->{RESULT} = "not found";
 		$self->{COMMENT} = "Kernel without real-time capabilities found\n".
-			"For more information, see http://wiki.linuxmusicians.com/doku.php?id=system_configuration#installing_a_real-time_kernel";
+			"For more information, see http://wiki.linuxaudio.org/wiki/system_configuration#installing_a_real-time_kernel";
 	}
 	else
 	{	

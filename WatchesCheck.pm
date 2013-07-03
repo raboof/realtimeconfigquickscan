@@ -36,7 +36,7 @@ sub execute
 		$self->{RESULTKIND} = "not good";
 		$self->{RESULT} = "< 524288";
 		$self->{COMMENT} = "increase max_user_watches by adding 'fs.inotify.max_user_watches = 524288' to /etc/sysctl.conf and rebooting\n".
-			"For more information, see http://wiki.linuxmusicians.com/doku.php?id=system_configuration#sysctl.conf";
+			"For more information, see http://wiki.linuxaudio.org/wiki/system_configuration#sysctlconf";
 	} else {
 		$self->{RESULTKIND} = "good";
 		$self->{RESULT} = ">= 524288";

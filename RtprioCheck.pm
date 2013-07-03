@@ -42,7 +42,7 @@ sub execute
 		$self->{RESULTKIND} = "not good";
 		$self->{RESULT} = "no";
 		$self->{COMMENT} = "Could not assign a 80 rtprio value. Set up limits.conf.\n".
-			"For more information, see http://wiki.linuxmusicians.com/doku.php?id=system_configuration#limits.conf";
+			"For more information, see http://wiki.linuxaudio.org/wiki/system_configuration#limitsconfaudioconf";
 	}
 }
 
