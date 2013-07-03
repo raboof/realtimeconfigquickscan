@@ -45,7 +45,7 @@ sub execute
 	}
 	if ($self->{RESULTKIND} eq "not good")
 	{
-		$self->{COMMENT} = "See also: http://wiki.linuxmusicians.com/doku.php?id=system_configuration#Disabling_resource-intensive_daemons";
+		$self->{COMMENT} = "See also: http://wiki.linuxaudio.org/wiki/system_configuration#disabling_resource-intensive_daemons_services_and_processes";
 	}
 	else
 	{

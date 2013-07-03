@@ -37,7 +37,7 @@ sub executeWithKernelConfig($)
 		$self->{RESULTKIND} = "not good";
 		$self->{RESULT} = "not found";
 		$self->{COMMENT} = "Try enabling tickless timer support (CONFIG_NO_HZ)\n";
-			"For more information, see http://wiki.linuxmusicians.com/doku.php?id=system_configuration#installing_a_real-time_kernel\n";
+			"For more information, see http://wiki.linuxaudio.org/wiki/system_configuration#installing_a_real-time_kernel\n";
 			"http://irc.esben-stien.name/mediawiki/index.php/Setting_Up_Real_Time_Operation_on_GNU/Linux_Systems#Kernel"
 	}
 	else
