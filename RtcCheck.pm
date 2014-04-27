@@ -53,7 +53,7 @@ sub execute
 	{
 		$self->{RESULTKIND} = "not good";
 		$self->{RESULT} = "not found";
-		$self->{COMMENT} = "$device not found.";
+		$self->{COMMENT} = "$device not found (perhaps create a symlink?).";
 	}
 }
 
