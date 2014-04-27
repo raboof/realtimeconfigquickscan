@@ -138,20 +138,7 @@ else
 ## Misc
 
 # security/limits.conf
-#print "Checking the ability to prioritize processes with (re)nice... ";
-#my $niceout = `nice -n -5 nice`;
-#chomp($niceout);
-#if ($niceout eq "-5")
-#{
-#	print "yes - good.\n";
-#}
-#else
-#{
-#	print "no.\n";
-#	print "** Could not assign a -5 nice value. Set up limits.conf.\n";
-#	print "   For more information, see http://wiki.linuxaudio.org/wiki/system_configuration#limitsconfaudioconf\n";
-#}
-# TODO other limits.conf settings: 
+# TODO limits.conf settings
 
 
 
