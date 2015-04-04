@@ -34,7 +34,14 @@ sub execute
 	$self->{RESULT} = "";
 	$self->{COMMENT} = undef;
 
-	my $swappiness = `/sbin/sysctl vm.swappiness`;
+	my $sysctlcmd;
+	if (-e "/sbin/sysctl") {
+		$sysctlcmd="/sbin/sysctl"
+	} else {
+		$sysctlcmd="sysctl"
+	}
+
+	my $swappiness = `$sysctlcmd vm.swappiness`;
 	if ($swappiness =~ /vm.swappiness = (\d+)/)
 	{
 		$self->{RESULT} = $1;
