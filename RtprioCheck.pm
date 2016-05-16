@@ -30,7 +30,7 @@ sub new
 sub execute
 {
 	my $self = shift;
-	my $rtprioout = `chrt 80 echo success`;
+	my $rtprioout = `chrt -f 80 echo success`;
 	if ($rtprioout =~ /success/)
 	{
 		$self->{RESULTKIND} = "good";
@@ -41,7 +41,7 @@ sub execute
 	{
 		$self->{RESULTKIND} = "not good";
 		$self->{RESULT} = "no";
-		$self->{COMMENT} = "Could not assign a 80 rtprio value. Set up limits.conf.\n".
+		$self->{COMMENT} = "Could not assign a 80 rtprio SCHED_FIFO value. Set up limits.conf.\n".
 			"For more information, see http://wiki.linuxaudio.org/wiki/system_configuration#limitsconfaudioconf";
 	}
 }
