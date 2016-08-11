@@ -17,6 +17,7 @@
 #    If not, see <http://www.gnu.org/licenses/>.
 package HpetCheck;
 
+use Check;
 use base qw(Check);
 
 sub new

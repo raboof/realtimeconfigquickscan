@@ -17,6 +17,7 @@
 #    If not, see <http://www.gnu.org/licenses/>.
 package Hz1000Check;
 
+use KernelConfigCheck;
 use base qw(KernelConfigCheck);
 
 sub new
