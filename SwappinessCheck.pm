@@ -17,6 +17,7 @@
 #    If not, see <http://www.gnu.org/licenses/>.
 package SwappinessCheck;
 
+use Check;
 use base qw(Check);
 
 sub new

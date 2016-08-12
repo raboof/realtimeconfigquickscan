@@ -17,6 +17,7 @@
 #    If not, see <http://www.gnu.org/licenses/>.
 package PreemptRtCheck;
 
+use KernelConfigCheck;
 use base qw(KernelConfigCheck);
 
 sub new
