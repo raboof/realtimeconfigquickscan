@@ -41,7 +41,7 @@ sub execute
 	{
 		$self->{RESULT} = "$1.$2.$3 kernel";
 		$self->{RESULTKIND} = "good";
-		$self->{COMMENT} = "(relatime is default since 2.6.30)";
+		$self->{COMMENT} = "(realtime is default since 2.6.30)";
 		return;
 	}
 
