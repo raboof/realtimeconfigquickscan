@@ -10,7 +10,7 @@ Console
 
     git clone git://github.com/raboof/realtimeconfigquickscan.git
     cd realtimeconfigquickscan
-    perl ./realTimeConfigQuickScan.pl
+    perl -I ./ ./realTimeConfigQuickScan.pl
 
 GUI
 ---
@@ -19,7 +19,7 @@ An experimental GUI is now available. To try it:
 
     git clone git://github.com/raboof/realtimeconfigquickscan.git
     cd realtimeconfigquickscan
-    perl ./QuickScan.pl
+    perl -I ./ ./QuickScan.pl
 
 .. and hit 'Start'
 
