@@ -31,7 +31,7 @@ sub new
 sub execute
 {
 	my $self = shift;
-	my $audioGroups = `cat /etc/group | grep audio | wc -l`;
+	my $audioGroups = `cat /etc/group | grep ^audio: | wc -l`;
 	chomp($audioGroups);
 	if ( $audioGroups eq "1" )
 	{
