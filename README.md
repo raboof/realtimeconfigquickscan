@@ -23,4 +23,4 @@ An experimental GUI is now available. To try it:
 
 .. and hit 'Start'
 
-You'll need to have Mercurial en perl/tk installed. 
+You'll need to have Mercurial and perl/tk installed. 
