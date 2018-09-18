@@ -64,19 +64,22 @@ else
 	print "   For more information, see http://wiki.linuxaudio.org/wiki/system_configuration#filesystems\n";
 }
 
-if ($tmpfs)
-{
-	print "ok.\n";
-}
-else
-{
-	print "not found.\n";
-	print "** Warning: no tmpfs partition mounted on /tmp\n";
-	# TODO tip about 'sudo mount -t tmpfs none /tmp' or editing fstab.
-	print "   For more information, see:\n";
-	print "   - http://wiki.linuxaudio.org/wiki/system_configuration#tmpfs\n";
-	print "   - http://lowlatency.linuxaudio.org\n";
-}
+# According to the link this isn't any more necessary. 
+# Quote: "Both Jack1 and Jack2 now use /dev/shm/ so mounting /tmp/ to tmpfs is not necessary anymore."
+# if ($tmpfs)
+# {
+# 	print "ok.\n";
+# }
+# else
+# {
+# 	print "not found.\n";
+# 	print "** Warning: no tmpfs partition mounted on /tmp\n";
+# 	# TODO tip about 'sudo mount -t tmpfs none /tmp' or editing fstab.
+# 	print "   For more information, see:\n";
+# 	print "   - http://wiki.linuxaudio.org/wiki/system_configuration#tmpfs\n";
+# 	print "   - http://lowlatency.linuxaudio.org\n";
+# }
+
 
 if (!defined $ENV{SOUND_CARD_IRQ})
 {
