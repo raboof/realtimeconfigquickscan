@@ -35,7 +35,7 @@ my @filesystems = $engine->getFilesystems();
 
 print "Checking filesystem types... ";
 my $foundMessage = 0;
-my $tmpfs = 0;
+
 foreach my $fsref (@filesystems)
 {
 	my %fs = %{$fsref};
@@ -49,10 +49,6 @@ foreach my $fsref (@filesystems)
 		print "** Warning: do not use $fs{mountpoint} for audio files.\n";
 		print "   $fs{type} is not a good filesystem type for realtime use and large files.\n";
 	}
-	if (($fs{type} eq "tmpfs") && ($fs{mountpoint} eq "/tmp"))
-	{
-		$tmpfs = 1;
-	}
 }
 
 if (!$foundMessage)
@@ -63,23 +59,6 @@ else
 {
 	print "   For more information, see http://wiki.linuxaudio.org/wiki/system_configuration#filesystems\n";
 }
-
-# According to the link this isn't any more necessary. 
-# Quote: "Both Jack1 and Jack2 now use /dev/shm/ so mounting /tmp/ to tmpfs is not necessary anymore."
-# if ($tmpfs)
-# {
-# 	print "ok.\n";
-# }
-# else
-# {
-# 	print "not found.\n";
-# 	print "** Warning: no tmpfs partition mounted on /tmp\n";
-# 	# TODO tip about 'sudo mount -t tmpfs none /tmp' or editing fstab.
-# 	print "   For more information, see:\n";
-# 	print "   - http://wiki.linuxaudio.org/wiki/system_configuration#tmpfs\n";
-# 	print "   - http://lowlatency.linuxaudio.org\n";
-# }
-
 
 if (!defined $ENV{SOUND_CARD_IRQ})
 {
