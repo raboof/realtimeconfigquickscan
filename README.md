@@ -24,3 +24,10 @@ An experimental GUI is now available. To try it:
 .. and hit 'Start'
 
 You'll need to have Mercurial and perl/tk installed. 
+
+Adding the sound card IRQ
+-------------------------
+
+open the file `/proc/interrupts`. Find your sound card. The first column represents the IRQ. Set this numer to the variable `SOUND_CARD_IRQ` in the same terminal session like this:
+
+    export SOUND_CARD_IRQ={IRQ #}
