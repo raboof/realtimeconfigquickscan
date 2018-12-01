@@ -18,6 +18,8 @@
 package Check;
 
 use strict;
+use Term::ANSIColor qw(:constants);
+
 
 sub new {
 	my $class = shift;
@@ -32,7 +34,22 @@ sub new {
 
 sub display {
 	my $self = shift;
-	print $self->{LABEL} . "... " . $self->{RESULT} . " - " . $self->{RESULTKIND} . "\n";
+	print $self->{LABEL} . "... " . $self->{RESULT} . " - ";
+    if ($self->{RESULTKIND} eq "not good")
+    {
+        print BOLD, RED, $self->{RESULTKIND}, RESET"\n";
+    }
+    elsif ($self->{RESULTKIND} eq "warning")
+    {
+        print BOLD, YELLOW, $self->{RESULTKIND}, RESET "\n";
+    }
+    elsif ($self->{RESULTKIND} eq "good")
+    {
+        print BOLD, GREEN, $self->{RESULTKIND}, RESET "\n";
+    }
+    else {
+        print BOLD, BLUE, $self->{RESULTKIND}, RESET "\n";
+    }
 	if (defined($self->{COMMENT}))
 	{
 		print $self->{COMMENT} . "\n";
