@@ -18,6 +18,8 @@
 #    If not, see <http://www.gnu.org/licenses/>.
 
 use strict;
+use FindBin;
+use lib $FindBin::Bin;
 use QuickScanEngine;;
 
 my $engine = QuickScanEngine->new();

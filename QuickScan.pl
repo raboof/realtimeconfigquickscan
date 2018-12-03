@@ -20,6 +20,8 @@
 use strict;
 use Tk;
 use Tk::Table;
+use FindBin;
+use lib $FindBin::Bin;
 use QuickScanEngine;
 
 my $engine = QuickScanEngine->new;
