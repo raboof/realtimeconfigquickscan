@@ -53,7 +53,7 @@ sub execute
 
 	if ($self->{RESULTKIND} eq "not good")
 	{
-		$self->{COMMENT} = "Set CPU Governors to 'performance' with 'cpufreq-set -c <cpunr> -g performance'\n" .
+		$self->{COMMENT} = "Set CPU Governors to 'performance' with 'cpupower frequency-set -g performance' or 'cpufreq-set -c <cpunr> -g performance' (Debian/Ubuntu)\n" .
 			"See also: http://linuxmusicians.com/viewtopic.php?f=27&t=844";
 	}
 }
