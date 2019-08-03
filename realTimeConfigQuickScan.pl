@@ -73,11 +73,20 @@ elsif ($ENV{SOUND_CARD_IRQ} eq "none")
 }
 else
 {
+	print "Checking for devices at IRQ $ENV{SOUND_CARD_IRQ}... ";
 	my $irqline = `cat /proc/interrupts | grep $ENV{SOUND_CARD_IRQ}:`;
 	#my @fields = split(/\s+/, $irqline);
 	if ($irqline =~ /,/)
 	{
-		print "** multiple devices found at the sound cards' IRQ\n";
+		print "found multiple. not ok.\n";
+	}
+	elsif ($irqline =~ /^\s*$/)
+	{
+		print "did not find any. not ok.\n";
+	}
+	else
+	{
+		print "did not find multiple. ok.\n";
 	}
 }
 
