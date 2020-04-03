@@ -35,7 +35,7 @@ sub execute
 	{
 		$self->{RESULTKIND} = "not good";
 		$self->{RESULT} = "no";
-		$self->{COMMENT} = "add yourself to the audio group with 'adduser \$USER audio'\n"
+		$self->{COMMENT} = "add yourself to the audio group with 'adduser \$USER audio'"
 	} else {
 		$self->{RESULTKIND} = "good";
 		$self->{RESULT} = "yes";
