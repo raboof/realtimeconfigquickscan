@@ -23,7 +23,7 @@ use base qw(KernelConfigCheck);
 sub new
 {
 	my($class) = shift;
-        my($self) = KernelConfigCheck->new($class);
+	my($self) = KernelConfigCheck->new($class);
 	$self->{LABEL} = "Kernel with Real-Time Preemption";
 	return (bless($self, $class));
 }
@@ -33,19 +33,29 @@ sub executeWithKernelConfig($)
 	my $self = shift;
 	my $kernelConfig = shift;
 
-	if ( $kernelConfig !~ /CONFIG_PREEMPT_RT=y|CONFIG_PREEMPT_RT_FULL=y/)
+	if ( $kernelConfig =~ /CONFIG_PREEMPT_RT=y|CONFIG_PREEMPT_RT_FULL=y/)
 	{
-		$self->{RESULTKIND} = "not good";
-		$self->{RESULT} = "not found";
-		$self->{COMMENT} = "Kernel without real-time capabilities found\n".
-			"For more information, see http://wiki.linuxaudio.org/wiki/system_configuration#installing_a_real-time_kernel";
-	}
-	else
-	{	
 		$self->{RESULTKIND} = "good";
 		$self->{RESULT} = "found";
 		$self->{COMMENT} = undef;
+		return
 	}
+
+	my $cmdline = `cat /proc/cmdline`;
+	my $kernelVersion = `uname -r`;
+	$kernelVersion =~ /^(\d+)\.(\d+)\.(\d+)/;
+	if ( ($1 > 2 || ($1 == 2 && ($2 > 6 || ($2 == 6 && $3 >= 39)))) && $cmdline =~ /threadirqs/)
+	{
+		$self->{RESULTKIND} = "good";
+		$self->{RESULT} = "'threadirqs' kernel parameter";
+		$self->{COMMENT} = undef;
+		return
+	}
+
+	$self->{RESULTKIND} = "not good";
+	$self->{RESULT} = "not found";
+	$self->{COMMENT} = "Kernel without 'threadirqs' parameter or real-time capabilities found\n".
+		"For more information, see https://wiki.linuxaudio.org/wiki/system_configuration#do_i_really_need_a_real-time_kernel";
 }
 
 1;
