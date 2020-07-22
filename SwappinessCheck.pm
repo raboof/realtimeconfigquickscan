@@ -49,7 +49,7 @@ sub execute
 		if ($1 > 10)
 		{
 			$self->{COMMENT} = "** vm.swappiness is larger than 10\n" .
-				"set it with '/sbin/sysctl -w vm.swappiness=10'\n".
+				"set it by adding to /etc/sysctl vm.swappiness=10\n".
 				"See also: http://linuxmusicians.com/viewtopic.php?f=27&t=452&start=30#p8916";
 			$self->{RESULTKIND} = "not good";
 		}
@@ -58,11 +58,11 @@ sub execute
 			$self->{RESULTKIND} = "good";
 		}
 	}
-	else
-	{
-		$self->{RESULTKIND} = "warning";
-		print "warning: '/sbin/sysctl vm.swappiness' did not produce a parsable result\n";
-	}
+#	else
+#	{
+#		$self->{RESULTKIND} = "warning";
+#		print "warning: '/sbin/sysctl vm.swappiness' did not produce a parsable result\n";
+#	}
 }
 
 1;
