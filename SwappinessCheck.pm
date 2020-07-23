@@ -49,8 +49,7 @@ sub execute
 		if ($1 > 10)
 		{
 			$self->{COMMENT} = "** vm.swappiness is larger than 10\n" .
-				"set it with '/sbin/sysctl -w vm.swappiness=10'\n".
-				"See also: http://linuxmusicians.com/viewtopic.php?f=27&t=452&start=30#p8916";
+				"Set swappiness by adding 'vm.swappiness=10' to /etc/sysctl.conf and rebooting\n";
 			$self->{RESULTKIND} = "not good";
 		}
 		else
