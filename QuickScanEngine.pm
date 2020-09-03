@@ -23,8 +23,6 @@ use GovernorCheck;
 use SwappinessCheck;
 use BackgroundCheck;
 use WatchesCheck;
-use HpetCheck;
-use RtcCheck;
 use AudioGroupCheck;
 use MultiAudioCheck;
 use RtprioCheck;
@@ -46,8 +44,6 @@ sub new {
 	push(@{$self->{CHECKS}}, SwappinessCheck->new);
 	push(@{$self->{CHECKS}}, BackgroundCheck->new);
 	push(@{$self->{CHECKS}}, WatchesCheck->new);
-	push(@{$self->{CHECKS}}, HpetCheck->new);
-	push(@{$self->{CHECKS}}, RtcCheck->new);
 	push(@{$self->{CHECKS}}, AudioGroupCheck->new);
 	push(@{$self->{CHECKS}}, MultiAudioCheck->new);
 	push(@{$self->{CHECKS}}, RtprioCheck->new);
