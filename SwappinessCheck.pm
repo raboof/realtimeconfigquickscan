@@ -35,32 +35,40 @@ sub execute
 	$self->{RESULT} = "";
 	$self->{COMMENT} = undef;
 
-	my $sysctlcmd;
-	if (-e "/sbin/sysctl") {
-		$sysctlcmd="/sbin/sysctl"
-	} else {
-		$sysctlcmd="sysctl"
-	}
-
-	my $swappiness = `$sysctlcmd vm.swappiness`;
-	if ($swappiness =~ /vm.swappiness = (\d+)/)
+	my $swapon=`swapon -s`;
+	if ($swapon eq "")
 	{
-		$self->{RESULT} = $1;
-		if ($1 > 10)
-		{
-			$self->{COMMENT} = "** vm.swappiness is larger than 10\n" .
-				"Set swappiness by adding 'vm.swappiness=10' to /etc/sysctl.conf and rebooting\n";
-			$self->{RESULTKIND} = "not good";
-		}
-		else
-		{
-			$self->{RESULTKIND} = "good";
-		}
+		$self->{RESULTKIND} = "good";
 	}
 	else
 	{
-		$self->{RESULTKIND} = "warning";
-		print "warning: '/sbin/sysctl vm.swappiness' did not produce a parsable result\n";
+		my $sysctlcmd;
+		if (-e "/sbin/sysctl") {
+			$sysctlcmd="/sbin/sysctl"
+		} else {
+			$sysctlcmd="sysctl"
+		}
+	
+		my $swappiness = `$sysctlcmd vm.swappiness`;
+		if ($swappiness =~ /vm.swappiness = (\d+)/)
+		{
+			$self->{RESULT} = $1;
+			if ($1 > 10)
+			{
+				$self->{COMMENT} = "** vm.swappiness is larger than 10\n" .
+					"Set swappiness by adding 'vm.swappiness=10' to /etc/sysctl.conf and rebooting\n";
+				$self->{RESULTKIND} = "not good";
+			}
+			else
+			{
+				$self->{RESULTKIND} = "good";
+			}
+		}
+		else
+		{
+			$self->{RESULTKIND} = "warning";
+			print "warning: '/sbin/sysctl vm.swappiness' did not produce a parsable result\n";
+		}
 	}
 }
 
