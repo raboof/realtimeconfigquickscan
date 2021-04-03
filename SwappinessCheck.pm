@@ -39,6 +39,8 @@ sub execute
 	if ($swapon eq "")
 	{
 		$self->{RESULTKIND} = "good";
+		$self->{RESULT} = "System running without disk swap";
+		$self->{COMMENT} = "** Your system is configured without swap. No swap => no problem between swap and realtime";
 	}
 	else
 	{
