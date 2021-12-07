@@ -1,3 +1,8 @@
+THIS PROJECT HAS MOVED
+======================
+
+This project has moved to https://codeberg.org/rtcqs/rtcqs - see you there!
+
 realtimeconfigquickscan
 =======================
 
